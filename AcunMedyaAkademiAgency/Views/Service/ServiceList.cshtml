@@ -1,0 +1,48 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Service>
+@{
+    ViewBag.Title = "ServiceList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hizmetler</h4>
+            <p class="card-description">
+                Hizmetler ile ilgili işlemleri buradan yapabilirsiniz.</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                      
+                        <tr>
+                            <th>#</th>
+                            <th>Ad</th>
+                            <th>Fotoğraf</th>
+                            <th>Açıklama</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.Title</td>
+                                <td><img src="@item.ImageUrl" style="width:75px;height:75px;" alt="Hizmet Görseli" /></td>
+                                <td>@item.Description</td>
+                                <td><a class="btn btn-success" href="/Service/UpdateService/@item.ServiceID"><i class="mdi mdi-grease-pencil"> Güncelle</i></a></td>
+                                <td><a class="btn btn-danger" href="/Service/DeleteService/@item.ServiceID"><i class="mdi mdi-delete"> Sil</i></a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <a href="/Service/CreateService" class="btn btn-info"><i class="mdi mdi-file-check btn-icon-append"></i> Hizmet Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

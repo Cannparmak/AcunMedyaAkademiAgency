@@ -1,0 +1,26 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Team>
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Ajansımızın Uzman Kadrosu</h2>
+            <h3 class="section-subheading text-muted">Uzman Ekibimizle Geleceği İnşa Ediyoruz</h3>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="team-member text-center">
+                        <img class="rounded-circle img-fluid" src="@item.ImageUrl" alt="@item.NameSurname" style="width: 200px; height: 200px; object-fit: cover;" />
+                        <h4>@item.NameSurname</h4>
+                        <p class="text-muted">@item.Branch.BranchName</p>
+                        @Html.Action("SocialMediaPartial", "Default")
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Projelerinize hayat veriyoruz, hayallerinizi gerçeğe dönüştürüyoruz.</p></div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "CreateFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Öne Çıkan Ekleme Sayfası</h4>
+            <p class="card-description">Öne Çıkan ekleme işlemlerini buradan yapabilirsiniz.</p>
+            <form class="forms-sample" method="post">
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Başlık</label>
+                    <input type="text"
+                           class="form-control"
+                           id="exampleInputName1"
+                           placeholder="Öne Çıkan Başlığı"
+                           name="Title" />
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Açıklama</label>
+                    <textarea rows="4" class="form-control" name="Description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName2">Resim Url</label>
+                    <input type="text"
+                           class="form-control"
+                           id="exampleInputName1"
+                           placeholder="Öne Çıkan Resim Url'si"
+                           name="ImageUrl" />
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>              
+                <a href="@Url.Action("FeatureList", "Feature")" class="btn btn-outline-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model List<AcunMedyaAkademiAgency.Entities.Notification>
+@{
+    ViewBag.Title = "NotificationList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Bidirimler Sayfası</h4>
+            <p class="card-description">
+                Bildirimler ile ilgili işlemleri buradan yapabilirsiniz.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Açıklaması</th>
+                            <th>Resim</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.NameSurname</td>
+                                <td>@item.Description</td>
+                                <td><img src="@item.ImageUrl" style="width:75px;height:75px;" alt="Hizmet Görseli" /></td>
+                                <td><a class="btn btn-danger" href="/Notification/DeleteNotification/@item.NotificationID"><i class="fa fa-trash"></i> Sil</a></td>
+                                <td><a class="btn btn-success" href="/Notification/UpdateNotification/@item.NotificationID"><i class="fa fa-pencil"></i> Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/Notification/CreateNotification" class="btn btn-info"><i class="mdi mdi-file-check btn-icon-append">Bildirim Ekle</i></a>
+            </div>
+        </div>
+    </div>
+</div>
